@@ -64,3 +64,75 @@ const array = fi(n - 1);
 // The result should be [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 console.log(fi(10));
 
+////////////////////////////////////////////////////////////////////////
+
+// Encontrar el numero n de una figura piramidal triangular (tetrahedron)
+// (nivel) -> cantidad de numeritos
+
+const tetrahedralNumber = (n) => {
+    return n === 1 ? 1 : n + tetrahedralNumber(n - 1);
+  };
+
+// Example of use
+// The result should be 21
+console.log(tetrahedralNumber(6));  
+
+////////////////////////////////////////////////////////////////////////
+
+// Crear una funcion que tome el nombre de un pais y su area
+// (nombre, a)
+// Debe regresar la proporcion del area del pais en acorde a el area de tierra en el planeta
+//('Russia', 17098242) -> Russia is 11.48%
+// ("USA", 9372610) -> "USA is 6.29%
+
+// According to the International Union for Conservation of Nature (IUCN), the total land area is approximately 148.9 million km².
+
+const countryAreaPercentage = (name, a) => {
+    const earthLandArea = 148940000;
+    const percent = ((a / earthLandArea) * 100).toFixed(2);
+    return `${name} is ${percent}%`;
+  };
+
+// Example of use
+// The result should be Russia is 11.48% and USA is 6.29%
+console.log(countryAreaPercentage('Russia', 17098242));
+console.log(countryAreaPercentage('USA', 9372610));
+
+
+// Escribir una funcion que retorne 0 si el input es 1 y 1 si el input es 0
+// No se pueden utilizar condicionales, ternarios, negaciones ni operatores bit
+
+const functionWithoutConditionals = (n) => {
+    const array = [1, 0];
+    return array[n];
+  };
+
+// Example of use
+// The result should be 1 and 0
+console.log(functionWithoutConditionals(0));
+console.log(functionWithoutConditionals(1));
+
+
+// Messenger bzzz
+// (0 ) n
+// Si no hay nadie -> "No hay nadie en linea"
+// Si hay 1 persona -> "user1 esta en linea"
+// Si hay 2 personas -> "user1 y user2 estan en linea"
+// Si hay n>2 personas, "user1 y n-1 mas estan en linea"
+
+const messenger = (n) => {
+    switch (n) {
+        case 0:
+          return "No hay nadie en línea";
+        case 1:
+          return "user1 está en línea";
+        case 2:
+          return "user1 y user2 están en línea";
+        default:
+          return `user1 y ${n - 1} más están en línea`;
+      }
+    };
+
+// Example of use
+// The result should be user1 y user2 están en línea
+console.log(messenger(2));
